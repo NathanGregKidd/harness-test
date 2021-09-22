@@ -8,7 +8,7 @@ wires = []
 gpios = []
 for wire in range(1,41):
     wires.append(wire)
-for gpio in range(1,41):
+for gpio in range(0,40):
     gpios.append(gpio)
 wire_gpio_matchup = dict(zip(wires, gpios))
 #
@@ -30,9 +30,12 @@ def arpeggio_up(wires, period):
 
 
 def main():
-    arpeggio_up(wires, 0.1)
+    arpeggio_up(wires, 1)
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    finally:
+        GPIO.cleanup()
 
 
